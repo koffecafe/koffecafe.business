@@ -1,0 +1,262 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgba(56, 119, 1, 0.9);
+    padding: 15px;
+    position: relative; /* Position relative to allow stacking of content */
+    z-index: 1; /* Ensure it appears above the background */
+}
+
+/* Navigation bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; /* Adjust the height of the header */
+}
+
+/* Left menu with navigation links */
+.menu-left ul {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Space between the menu items */
+}
+
+.menu-left ul li {
+    display: inline;
+}
+
+.menu-left ul li a {
+    text-decoration: none;
+    color: #000000; /* Set text color to black for contrast against the background */
+    padding: 10px;
+    font-size: 18px;
+}
+
+.menu-right a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Background container */
+.background {
+    position: fixed; /* Fix the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/Zero_Two.png');
+    background-size: cover; /* Ensure the image covers the entire body */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    z-index: -1; /* Ensure it stays behind the content */
+}
+
+.admin-section {
+    max-width: 80%; /* Adjusted max width */
+    margin: 30px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+input[type="text"], input[type="number"], input[type="file"], textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.product-list {
+    display: grid; /* Use CSS grid */
+    grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+    gap: 20px; /* Space between items */
+    margin-top: 30px;
+}
+
+.product-item {
+    flex: 1 1 48%; /* Each item takes up approximately 48% to account for gaps */
+    box-sizing: border-box; /* Ensure padding and border are included in the total width */
+    display: flex; /* Keep item content in a flex layout */
+    align-items: center; /* Center vertically */
+    background-color: #f9f9f9;
+    padding: 10px; /* Padding inside the product item */
+    border-bottom: 1px solid #eee;
+    border-radius: 8px; /* Rounded corners for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.product-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px; /* Add space between image and text */
+}
+
+.product-item div {
+    flex-grow: 1; /* Allow this div to take remaining space */
+    padding: 0 15px; /* Add padding to the text area */
+}
+
+.product-item h4 {
+    margin: 0;
+    color: #333;
+    font-size: 16px; /* Adjust font size for product name */
+}
+
+.product-item p {
+    margin: 5px 0; /* Margin above and below the description */
+    color: #666; /* Change color for better readability */
+}
+
+.product-item .price {
+    font-weight: bold; /* Make price bold */
+    color: #4CAF50; /* Change price color to green */
+}
+
+.product-item button {
+    background-color: #f44336;
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left:20px; /* Space between edit and delete buttons */
+}
+
+.product-item button:hover {
+    background-color: #d7352c;
+}
+
+/* Style for Edit button */
+.product-item button:first-of-type {
+    background-color: #008CBA;
+    margin-right: 10px;
+}
+
+.product-item button:first-of-type:hover {
+    background-color: #007bb5;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for better visibility */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Change color on hover */
+} 
+
+/* Footer styling */
+.footer {
+    background-color: rgba(56, 119, 1, 0.9);
+    text-align: center;
+    padding: 20 px 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.footer h2 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+.icons .fab,
+.icons .fas {
+    color: #000;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+/* Media query for small devices */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+}
